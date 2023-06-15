@@ -50,17 +50,18 @@ Replace <command> with one of the available commands from the features list belo
 ## Available commands
 - `sensitive`: Search for sensitive Data
     - Option: `-c, --get_sensitive_comments`
-    - Description: Get sensitive comments
+    - Description: Get sensitive data from user comments
 
 - `followers`: Get the followers of the target username
 - `following`: Get the users that the target username is following
 - `info`: Get the information of the target username
 - `posts`: Get the posts of the target username
 - `comments`: Get the comments on the posts of the target username
-- `fwersemail`: Extract email addresses from the followers of the target username
-- `fwingsemail`: Extract email addresses from the users that the target username is following
-- `fwersnumber`: Extract phone numbers from the followers of the target username
-- `fwingsnumber`: Extract phone numbers from the users that the target username is following
+- `fwersemail`: Extract email addresses from the followers' bio of the target username
+- `fwingsemail`: Extract email addresses from the users' bio that the target username is following
+- `fwersnumber`: Extract phone numbers from the followers' bio of the target username
+- `fwingsnumber`: Extract phone numbers from the users' bio that the target username is following
+
 
 For example, to check for sensitive comments, use the following command
 ```shell
