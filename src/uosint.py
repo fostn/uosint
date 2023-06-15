@@ -1,5 +1,6 @@
 from .api import InstagramAPI
 from .chatgpt import Chatgbt
+from.download import Download
 from tabulate import tabulate
 import re
 import datetime
@@ -9,6 +10,7 @@ class Uosint:
 		self.api = InstagramAPI()
 		self.api.authenticate_user()
 		self.Chatgbt = Chatgbt()
+		self.Download = Download()
 	def extract_email(self,text):
 		pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b'
 		matches = re.findall(pattern, str(text).replace(' ',''))
@@ -280,3 +282,9 @@ class Uosint:
 			self.find_sensitive_data(user_comments)
 		else:
 			print("No comments found")
+	def download_posts(self,username):
+		self.Download.posts(username)
+  
+	def download_stories(self,username):
+		self.Download.stories(username)
+  
