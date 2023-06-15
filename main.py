@@ -12,7 +12,6 @@ def main():
     sensitive_parser = subparsers.add_parser('sensitive', help='Check for sensitive comments')
     sensitive_parser.add_argument('-c', '--get_sensitive_comments', action='store_true', help='Get sensitive comments')
     
-
     # Add descriptions for other commands
     subparsers.add_parser('followers', help='Get the followers of the target username')
     subparsers.add_parser('following', help='Get the users that the target username is following')
@@ -24,6 +23,8 @@ def main():
     subparsers.add_parser('fwersnumber', help='Extract phone numbers from the followers of the target username')
     subparsers.add_parser('fwingsnumber', help='Extract phone numbers from the users that the target username is following')
     subparsers.add_parser('pocomments', help='Get the comments on the posts of the target username')
+    subparsers.add_parser('d-posts', help='Download the posts of the target username')
+    subparsers.add_parser('d-stories', help='Download the stories of the target username')
     parser.add_argument('username', help='Specify the target username')
     # Parse the command-line arguments
     args = parser.parse_args()
@@ -50,6 +51,10 @@ def main():
         uosint.get_fwingsemail(args.username)
     elif args.command == 'pocomments':
         uosint.get_posts_comments(args.username)
+    elif args.command == 'd-posts':
+        uosint.download_posts(args.username)
+    elif args.command == 'd-stories':
+        uosint.download_stories(args.username)
     elif args.command == 'sensitive':
         if args.get_sensitive_comments:
             uosint.get_sensitive_comments(args.username)
@@ -60,3 +65,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
