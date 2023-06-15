@@ -1,5 +1,6 @@
 # uosint
-Uosint is a versatile Instagram OSINT tool for gathering valuable insights and information from Instagram profiles, posts, and comments. Extract sensitive data, analyze user activities .
+Uosint is an Instagram OSINT (Open-Source Intelligence) tool for gathering valuable insights and information from Instagram profiles, posts, and comments. With Uosint, you can extract sensitive data, analyze user activities, and leverage the power of Chat GPT AI to perform advanced data analysis.
+
 # Features
 
 - Check for sensitive comments
