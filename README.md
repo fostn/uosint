@@ -1,5 +1,5 @@
 
-<img src="uosint.jpg" alt="Image Description" width="100">
+<img src="uosint.jpg" alt="Image Description" width="300">
 # uosint
 Uosint is an Instagram OSINT (Open-Source Intelligence) tool for gathering valuable insights and information from Instagram profiles, posts, and comments. With Uosint, you can extract sensitive data, analyze user activities, and leverage the power of Chat GPT AI to perform advanced data analysis.
 
