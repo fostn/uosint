@@ -14,8 +14,8 @@ setup(
     },
     install_requires=[
         'requests',
-        'tabulate',
-        'pycryptodome'
+        'tabulate==0.9.0',
+        'pycryptodome==3.18.0'
     ],
 
 )
