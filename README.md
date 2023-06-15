@@ -44,7 +44,7 @@ After successful login, the token will be generated and automatically saved in t
 
 To use Uosint, execute the following command:
 ```shell
-python main.py <command> <username>
+uosint <command> <username>
 ```
 Replace <command> with one of the available commands from the features list below and <username> with the target Instagram username.
 ## Available commands
