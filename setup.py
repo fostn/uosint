@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name='uosint',
     version='1.0.0',
-    packages=['src','config'],
+    packages=find_packages(),
     py_modules=["main"],
     include_package_data=True,
     package_data={'': ['*.ini']},
@@ -19,3 +19,4 @@ setup(
     ],
 
 )
+
