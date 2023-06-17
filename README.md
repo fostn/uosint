@@ -27,7 +27,7 @@ Uosint is an Instagram OSINT (Open-Source Intelligence) tool for gathering valua
   ```shell
   cd uosint
   ```
-3. Install the project dependencies:
+3. After entering your Instagram account information Install the project dependencies:
 
  ```shell
  python setup.py install
