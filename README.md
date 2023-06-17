@@ -7,7 +7,7 @@ Uosint is an Instagram OSINT (Open-Source Intelligence) tool for gathering valua
 - Check for sensitive comments
 - Get followers of a target username
 - Get users that a target username is following
-- Retrieve information about a target username
+- Get information about a target username
 - Fetch posts of a target username
 - Get comments on the posts of a target username
 - Download posts of a target username
