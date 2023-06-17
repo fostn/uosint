@@ -70,6 +70,7 @@ class Uosint:
 		['Following Count', info.get("following_count")],
 		['Media Count', info.get("media_count")],
 		['Bio', info.get("biography")],
+		['Account Date', self.api.date_joind(username)],
 		['Is Private', info.get("is_private")],
 		['Is Verified', info.get("is_verified")],
 		['Is Business', info.get("is_business")],
