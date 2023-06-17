@@ -24,7 +24,7 @@ git clone https://github.com/fostn/uosint.git
 ```
 cd uosint
 ```
-- قم بتثبيت تبعيات المشروع:
+-  بعد ادخال بيانات حساب Instagram الخاصة بك قم بتثبيت تبعيات المشروع:
 ```
 python setup.py install
 ```
