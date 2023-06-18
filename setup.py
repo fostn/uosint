@@ -16,7 +16,9 @@ setup(
         'requests',
         'tabulate==0.9.0',
         'pycryptodome==3.18.0'
+        'easyocr==1.7.0'
     ],
 
 )
+
 
