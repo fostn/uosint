@@ -3,8 +3,11 @@ import easyocr
 class TextDetector:
     def __init__(self):
         # Initialize EasyOCR reader
-        self.reader = easyocr.Reader(['en','ar'], download_enabled=False, 
+        try:
+         self.reader = easyocr.Reader(['en','ar'], download_enabled=False, 
                                      model_storage_directory='models',) 
+        except:
+         exit("Erro cannot found models")
 
     def detect_text(self, image_path):
         # Read text from the image using EasyOCR
@@ -16,5 +19,8 @@ class TextDetector:
             return detected_text
         except:
             return None
+
+
+
 
 
