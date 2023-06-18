@@ -25,7 +25,9 @@ def main():
     subparsers.add_parser('pocomments', help='Get the comments on the posts of the target username')
     subparsers.add_parser('d-posts', help='Download the posts of the target username')
     subparsers.add_parser('d-stories', help='Download the stories of the target username')
+    subparsers.add_parser('detect', help='Detect text in the images of the target username stories')
     parser.add_argument('username', help='Specify the target username')
+    
     # Parse the command-line arguments
     args = parser.parse_args()
     uosint = Uosint()
@@ -55,6 +57,8 @@ def main():
         uosint.download_posts(args.username)
     elif args.command == 'd-stories':
         uosint.download_stories(args.username)
+    elif args.command == 'detect':
+        uosint.detect(args.username)
     elif args.command == 'sensitive':
         if args.get_sensitive_comments:
             uosint.get_sensitive_comments(args.username)
