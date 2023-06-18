@@ -16,7 +16,7 @@ Uosint is an Instagram OSINT (Open-Source Intelligence) tool for gathering valua
 - Extract email addresses from users that a target username is following
 - Extract phone numbers from followers
 - Extract phone numbers from users that a target username is following
-
+- Detect and analyze text in the images of the target username stories
 # Installation
 
 1. Clone the repository:
@@ -66,7 +66,7 @@ Replace <command> with one of the available commands from the features list belo
 - `fwingsnumber`: Extract phone numbers from the users' bio that the target username is following
 - `d-posts`: Download the posts of the target username
 - `d-stories`: Download the stories of the target username
-
+- `detect`: Detect and analyze text in the images of the target username stories
 For example, to check for sensitive comments, use the following command
 ```shell
   uosint sensitive -c <username>
