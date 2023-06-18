@@ -1,10 +1,13 @@
 import easyocr
 import os
 from google_drive_downloader import GoogleDriveDownloader as gdd
+import requests
+import zipfile
 class TextDetector:
     def __init__(self):
         self.download_models()
-        self.reader = easyocr.Reader(['en'], download_enabled=False, 
+        self.download_arabic_pth()
+        self.reader = easyocr.Reader(['en','ar'], download_enabled=False, 
                                      model_storage_directory='models',) 
     def detect_text(self, image_path):
         # Read text from the image using EasyOCR
@@ -35,8 +38,30 @@ class TextDetector:
 
                 else:
                     pass
+    def download_arabic_pth(self):
+        url = "https://github.com/JaidedAI/EasyOCR/releases/download/pre-v1.1.6/arabic.zip"
+        zip_destination = "models/arabic.zip"
+        extraction_destination = "models/"
+        if os.path.exists(zip_destination):
+            return
 
+        response = requests.get(url, stream=True)
+        response.raise_for_status()
 
+        # Download the ZIP file
+        with open(zip_destination, "wb") as file:
+            for chunk in response.iter_content(chunk_size=32768):
+                if chunk:
+                    file.write(chunk)
+
+        # Extract the contents of the ZIP file
+        with zipfile.ZipFile(zip_destination, "r") as zip_ref:
+            zip_ref.extractall(extraction_destination)
+
+        # Delete the ZIP file
+        os.remove(zip_destination)
+
+        print("Download and extraction complete.")
 
 
 
