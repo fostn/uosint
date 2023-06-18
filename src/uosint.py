@@ -287,7 +287,7 @@ class Uosint:
 		self.Download.stories(username)
   
 	def detect(self, username):
-		#self.Download.stories(username)  # Download the user's stories
+		self.Download.stories(username)  # Download the user's stories
 		stories_folder = os.path.join("stories", username)
 		if not os.path.exists(stories_folder):
 			print(f"No downloaded stories found for {username}")
