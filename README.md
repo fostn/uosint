@@ -67,6 +67,7 @@ Replace <command> with one of the available commands from the features list belo
 - `d-posts`: Download the posts of the target username
 - `d-stories`: Download the stories of the target username
 - `detect`: Detect and analyze text in the images of the target username stories
+
 For example, to check for sensitive comments, use the following command
 ```shell
   uosint sensitive -c <username>
