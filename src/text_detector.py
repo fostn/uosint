@@ -3,7 +3,7 @@ import os
 import gdown
 class TextDetector:
     def __init__(self):
-        self.download_models()
+        #self.download_models()
         try:
          self.reader = easyocr.Reader(['en','ar'], download_enabled=False, 
                                      model_storage_directory='models',) 
