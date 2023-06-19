@@ -25,7 +25,11 @@ def main():
     subparsers.add_parser('pocomments', help='Get the comments on the posts of the target username')
     subparsers.add_parser('d-posts', help='Download the posts of the target username')
     subparsers.add_parser('d-stories', help='Download the stories of the target username')
-    subparsers.add_parser('detect', help='Detect text in the images of the target username stories')
+    
+    detect_parser = subparsers.add_parser('detect', help='Detect text in the images or stories of the target username')
+    detect_parser.add_argument('-i', '--images', action='store_true', help='Detect and analysis text in the images of the stories')
+    detect_parser.add_argument('-s', '--stories', action='store_true', help='Detect and analysis text in the stories')
+    
     parser.add_argument('username', help='Specify the target username')
     
     # Parse the command-line arguments
@@ -58,15 +62,23 @@ def main():
     elif args.command == 'd-stories':
         uosint.download_stories(args.username)
     elif args.command == 'detect':
-        uosint.detect(args.username)
+        if args.images:
+            uosint.detect_text_in_images(args.username)
+        elif args.stories:
+            uosint.detect_story_text(args.username)
+        else:
+            print("No option specified. Use -h or --help for available options.")
     elif args.command == 'sensitive':
         if args.get_sensitive_comments:
             uosint.get_sensitive_comments(args.username)
         else:
             print("No option specified. Use -h or --help for available options.")
     else:
-        print("Command not found. Use -h or --help for available commands.")
+        parser.print_help()
+
+        
 
 if __name__ == '__main__':
     main()
+
 
