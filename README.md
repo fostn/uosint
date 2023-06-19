@@ -52,7 +52,7 @@ uosint <command> <username>
 Replace <command> with one of the available commands from the features list below and <username> with the target Instagram username.
 ## Available commands
 - `sensitive`: Search for sensitive Data
-    - Option: `-c, --get_sensitive_comments`
+    - Option: `-c`
     - Description: Get sensitive data from user comments
 
 - `followers`: Get the followers of the target username
@@ -67,6 +67,10 @@ Replace <command> with one of the available commands from the features list belo
 - `d-posts`: Download the posts of the target username
 - `d-stories`: Download the stories of the target username
 - `detect`: Detect and analyze text in the images of the target username stories
+    - Option: `-i`
+    - Description: Detect and analysis text in the images of the stories
+   - Option: `-s`
+    - Description: Detect and analysis text in the stories
 
 For example, to check for sensitive comments, use the following command
 ```shell
