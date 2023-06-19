@@ -198,6 +198,49 @@ class InstagramAPI:
             return None
         else:
             return response.json().get('items')
+    def get_stories(self,username):
+        id = self.get_user_id(username)
+        base_url = "https://i.instagram.com/api/v1"
+        url = f"{base_url}/feed/user/{id}/story/"
+        headers = {
+            'User-Agent': 'Instagram 278.0.0.19.115 (iPhone13,3; iOS 14_4; en_SA@calendar=gregorian; en-SA; scale=3.00; 1170x2532; 463736449) AppleWebKit/420+',
+            'Authorization': self.bearer_token,
+        }
+        Is_Private = self.get_user_info(username).get("is_private")
+        if Is_Private:
+            exit(f"Account Private [{username}]")
+        response = requests.get(url, headers=headers)
+        if 'items' not in response.text:
+            exit(f"No stories found for [{username}]")
+        if response.status_code == 200:
+            data = response.json()
+            items = data.get('reel', {}).get('items', [])
+            return items
+    def get_story_text(self, story_id):
+        url = f"https://i.instagram.com/api/v1/language/story_translate/?id={story_id}"
+        headers = {
+            'User-Agent': 'Instagram 278.0.0.19.115 (iPhone13,3; iOS 14_4; en_SA@calendar=gregorian; en-SA; scale=3.00; 1170x2532; 463736449) AppleWebKit/420+',
+            'Authorization': self.bearer_token,
+        }
+        try:
+            response = requests.get(url,headers=headers)
+            if response.status_code == 200:
+                json_data = response.json()
+                translations = json_data.get('translations', [])
+                for translation in translations:
+                    text = translation.get('text')
+                    if text:
+                        # Perform analysis or further processing of the extracted text
+                        # ...
+                        return text
+
+            else:
+                print(f"Failed to retrieve story data")
+        except requests.exceptions.RequestException as e:
+            print(f"Error occurred during the request: {str(e)}")
+
+        return None
+
     def get_post_comments(self,post_id):
         url = f'https://i.instagram.com/api/v1/media/{post_id}/comments/?can_support_threading=true'
         headers = {
@@ -244,4 +287,6 @@ class InstagramAPI:
                 return 'Unknown'
         except:
             pass
+
+
 
