@@ -7,6 +7,7 @@ import re
 import datetime
 import time
 import os
+
 class Uosint:
 	def __init__(self):
 		self.api = InstagramAPI()
@@ -286,7 +287,32 @@ class Uosint:
 	def download_stories(self,username):
 		self.Download.stories(username)
   
-	def detect(self, username):
+	def detect_story_text(self,username):
+		response = self.api.get_stories(username)  # Retrieve the JSON response containing the story data using self.api.get_stories()
+		story_ids = []
+		for story in response:
+			story_id = story.get('pk')
+			media_type = story.get('media_type')
+			if story_id and media_type == 1:
+				story_ids.append(story_id)
+
+		print("Starting detecting text in stories...")
+		for story_id in story_ids:
+			print(f"[Detecting] Story ID: {story_id}\n")
+			text = self.api.get_story_text(story_id)  # Retrieve the text for the current story ID
+			if text:
+				analysis = self.Chatgbt.send_message(f"create description of what's going on here if you cant just reply with None: {text}")
+				truncated_text = text[:50] + "..." if len(text) > 40 else text
+				print("[Extracted text]\n",truncated_text+'\n')
+				print("[Analysis]\n",analysis)
+				extracted_info = self.Chatgbt.send_message(f'if you find any personal in info this text reply with key-value pair for every info else reply with No Extracted info : text = {text}')
+				print("[Extracted info]\n",extracted_info)
+			else:
+				pass
+
+
+
+	def detect_text_in_images(self, username):
 		self.Download.stories(username)  # Download the user's stories
 		stories_folder = os.path.join("stories", username)
 		if not os.path.exists(stories_folder):
@@ -313,6 +339,10 @@ class Uosint:
 					print(f"No detected text: {image_file}")
 			else:
 				pass
+			
+
+  
+
 			
 
   
