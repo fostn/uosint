@@ -15,7 +15,7 @@ setup(
     install_requires=[
         'requests',
         'tabulate',
-        'pycryptodome'
+        'pycryptodome',
         'easyocr',
         "GoogleDriveDownloader"
     ],
