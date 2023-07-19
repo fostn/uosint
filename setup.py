@@ -14,10 +14,10 @@ setup(
     },
     install_requires=[
         'requests',
-        'tabulate==0.9.0',
-        'pycryptodome==3.18.0'
-        'easyocr==1.7.0',
-        "GoogleDriveDownloader==0.4"
+        'tabulate',
+        'pycryptodome'
+        'easyocr',
+        "GoogleDriveDownloader"
     ],
 
 )
